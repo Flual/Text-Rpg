@@ -1,26 +1,14 @@
 import time
 import random
+
+import intro
 from classes import *
-
-
-# playerstats
+from playername import *
+from intro import *
 
 
 
 # Main function in which the game runs
-def new_game():
-
-
-    print("Welcome to Faerûn! ")
-    # time.sleep(3)
-    print("A world of Magic and Wonders!")
-    # time.sleep(3)
-    print("You are a Bard, a master of song, speech, and the magic they contain.")
-    # time.sleep(4)
-    print("You find yourself in Elfsong Tavern in Baldurs Gate, "
-          "located just inside the gate to Wyrm's Crossing on the eastern side of the lower city.")
-
-
 
 def dialogue():
     question_num = 1
@@ -58,7 +46,7 @@ def dialogue():
                 time.sleep(1)
                 print("Wait a minute.")
                 time.sleep(1)
-                print("No way!")
+                print("No it cant be!")
                 time.sleep(1)
                 print("The Innkeeper gets on top of the counter")
                 time.sleep(1)
@@ -66,7 +54,7 @@ def dialogue():
                 time.sleep(1)
                 print("He points towards you.")
                 time.sleep(1)
-                print("This is the famous 'Placeholder'")
+                print("This is the famous " + Playername.player_name)
                 time.sleep(1)
                 print("The Guests look at you and begin to cheer")
                 time.sleep(1)
@@ -99,7 +87,7 @@ def dialogue():
                 # time.sleep(1)
                 print("He points towards you.")
                 # time.sleep(1)
-                print("This is the famous 'Placeholder'")
+                print("This is the famous " + Playername.player_name)
                 # time.sleep(1)
                 print("The Guests look at you and begin to cheer")
                 # time.sleep(1)
@@ -167,7 +155,7 @@ performance = {"'What are you going to do?'"}
 
 options = [["A. Go to the Bar.", "B. Look around you.", "C. Smoke your Pipe."]]
 bar_options = [["A. Order a Drink", "B. Walk away"]]
-innkeeper_options = [["A. No why do you ask?", "B. Well Yes of course i am 'Placeholder'!"]]
+innkeeper_options = [["A. No why do you ask?", "B. Well Yes of course i am " + Playername.player_name]]
 perform_options = [["A. Of course no Problem", "B. Pardon me but another time"]]
 # performance_answers =[["A. Perform a Lullaby", "B. Cause a Distraction and leave"]]
 if Player.Charisma >= 14:
@@ -175,12 +163,15 @@ if Player.Charisma >= 14:
 else:
     performance_answers = [["A. Perform a Lullaby", "B. Cause a Distraction and leave"]]
 
-new_game()
+
+
+# new_game()
+intro.new_game()
 time.sleep(3)
 dialogue()
 
 while play_again():
-    new_game()
+    intro.new_game()
     time.sleep(3)
     dialogue()
 print("bye!")
