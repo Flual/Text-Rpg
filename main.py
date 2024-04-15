@@ -1,10 +1,13 @@
 import time
 import random
 
+import dialogueoptions
 import intro
 from classes import *
-from playername import *
+# from playername import Playername
 from intro import *
+from abilitycheck import ability_check
+from dialogueoptions import *
 
 
 
@@ -12,7 +15,7 @@ from intro import *
 
 def dialogue():
     question_num = 1
-    for key in sartingposition:
+    for key in dialogueoptions.startingposition:
         print(key)
         for i in options[question_num-1]:
             print(i)
@@ -20,7 +23,7 @@ def dialogue():
     answer = answer.upper()
 
     if answer == "A":
-        for key in barposition:
+        for key in dialogueoptions.barposition:
             print(key)
             for i in bar_options[question_num-1]:
                 print(i)
@@ -32,7 +35,7 @@ def dialogue():
             time.sleep(2)
             print("The Innkeeper brings you some ale.")
             time.sleep(2)
-            for key in innkeeper:
+            for key in dialogueoptions.innkeeper:
                 print(key)
                 for i in innkeeper_options[question_num - 1]:
                     print(i)
@@ -58,7 +61,7 @@ def dialogue():
                 time.sleep(1)
                 print("The Guests look at you and begin to cheer")
                 time.sleep(1)
-                for key in perform:
+                for key in dialogueoptions.perform:
                     print(key)
                     for i in perform_options[question_num - 1]:
                         print(i)
@@ -68,10 +71,10 @@ def dialogue():
                 if perform_answer == "A":
                     print("You get towards the hastily cleared stage in the Inn.")
                     # time.sleep(1)
-                    if Player.Charisma < 14:
+                    if ability_check() < 14:
                         print("Charisma check failed!")
                     time.sleep(1)
-                    for key in performance:
+                    for key in dialogueoptions.performance:
                         print(key)
                         for p in performance_answers[question_num - 1]:
                             print(p)
@@ -91,7 +94,7 @@ def dialogue():
                 # time.sleep(1)
                 print("The Guests look at you and begin to cheer")
                 # time.sleep(1)
-                for key in perform:
+                for key in dialogueoptions.perform:
                     print(key)
                     for i in perform_options[question_num - 1]:
                         print(i)
@@ -146,12 +149,7 @@ def play_again():
 
 # ----------------------
 
-sartingposition = {"What would you like to do?":"B"}
-# Startingposition Answers
-barposition = {"You are at the bar:"}
-innkeeper = {"While hading it over to you he says: 'Say do i know you?' "}
-perform = {"'Please would you perform for tonight I'd pay you!' says the Innkeeper."}
-performance = {"'What are you going to do?'"}
+
 
 options = [["A. Go to the Bar.", "B. Look around you.", "C. Smoke your Pipe."]]
 bar_options = [["A. Order a Drink", "B. Walk away"]]

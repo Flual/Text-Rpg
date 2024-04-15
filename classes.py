@@ -3,8 +3,13 @@ class Player:
 
     chosenclass = "bard"
     hp = 16 + random.randint(1, 6)
-    Charisma = random.randint(12, 18)
-    # Charisma = 10
+    Strength = 10
+    Dexterity = 14
+    Constitution = 13
+    Intelligence = 12
+    Wisdom = 10
+    Charisma = 16
+
 
 
 class Weapon:
